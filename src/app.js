@@ -1,8 +1,8 @@
-import read from './modules/reader';
-import json from './modules/parser';
+import GameSavingLoader from './modules/saveload';
 
-export default class GameSavingLoader {
-  static load() {
-    return read().then((response) => json(response)).then((data) => data);
-  }
-}
+GameSavingLoader.load().then((saving) => {
+  // saving объект GameSaving
+  console.log(saving);
+}, (error) => {
+  throw new Error(error);
+});
